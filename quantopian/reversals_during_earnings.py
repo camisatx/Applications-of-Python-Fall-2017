@@ -26,20 +26,27 @@ def initialize(context):
     context.MAX_DAYS_TO_HOLD = 6
     context.MAX_IN_ONE = 1.0
     
+    # Initialize lists of lists, storing how many days each long and short
+    #   position has been held
     context.longs = [[]] * context.DAYS_TO_HOLD
     context.shorts = [[]] * context.DAYS_TO_HOLD
     
+    # Attach our make_pipeline function so Quantopian knows where it is
     attach_pipeline(make_pipeline(context), 'my_pipeline')
     
+    # Set the schedule functions to run daily
     schedule_function(rebalance, date_rules.every_day(), time_rules.market_open())
     schedule_function(record_vars, date_rules.every_day(), time_rules.market_close())
     
 def make_pipeline(context):
+    """Build the pipeline for each trading day."""
+
+    # Get a 30 period ADV for stocks with volume over 0 shares per period
     adv = AverageDollarVolume(
         window_length=30,
         mask=USEquityPricing.volume.latest > 0,
     )
-    return Pipeline(
+    pipe = Pipeline(
         columns={
             'returns_quantile': Returns(
                 window_length=context.RETURNS_LOOKBACK,
@@ -50,7 +57,13 @@ def make_pipeline(context):
                 & Q500US() & adv.percentile_between(95, 100))
     )
 
+    return pipe
+
 def before_trading_start(context, data):
+    """Before trading starts for the day, build the day's pipeline, and update
+    the record of how long each position has been held.
+    """
+
     context.output = pipeline_output('my_pipeline')
 
     def update_record(record, new_item):
@@ -71,20 +84,29 @@ def before_trading_start(context, data):
     ])
         
 def rebalance(context, data):
+    """Rebalance the portfolio every day. This uses the data in
+    context.portfolio.positions to determine if the stock should be bought,
+    shorted or exited.
+    """
+
     # Convert the list of lists to a single list: [[1, 2], [3, 4]] -> [1, 2, 3, 4]
     long_list = [equity for sublist in context.longs for equity in sublist]
     short_list = [equity for sublist in context.shorts for equity in sublist]
     
-    # For each long position, enter an order for the lower of the max in one variable
-    #	or 50% * the number of positions
+    # For each long position, enter an order for the lower of the max in one
+    #   variable or 50% * the number of positions
     for equity in long_list:
         if data.can_trade(equity):
-            order_target_percent(equity, min(0.5 / len(long_list), context.MAX_IN_ONE))
-    # for equity in short_list:
-    #     if data.can_trade(equity):
-    #         order_target_percent(equity, -min(0.5 / len(short_list), context.MAX_IN_ONE))
+            order_target_percent(equity, min(0.5 / len(long_list),
+                                 context.MAX_IN_ONE))
+    # For each short position, enter an order for the lower of the max in one
+    #   variable or 50% * the number of positions
+    for equity in short_list:
+        if data.can_trade(equity):
+            order_target_percent(equity, -min(0.5 / len(short_list),
+                                 context.MAX_IN_ONE))
     
-    # Exit any position current in the portfolio that isn't on our long or short list
+    # Exit positions in the portfolio that aren't in our long or short list
     for position in context.portfolio.positions:
         if position not in long_list + short_list:
             order_target_percent(position, 0)
