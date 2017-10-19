@@ -97,18 +97,21 @@ def rebalance(context, data):
     #   variable or 50% * the number of positions
     for equity in long_list:
         if data.can_trade(equity):
+            log.info('Going long %s' % equity.symbol)
             order_target_percent(equity, min(0.5 / len(long_list),
                                  context.MAX_IN_ONE))
     # For each short position, enter an order for the lower of the max in one
     #   variable or 50% * the number of positions
     for equity in short_list:
         if data.can_trade(equity):
+            log.info('Going short %s' % equity.symbol)
             order_target_percent(equity, -min(0.5 / len(short_list),
                                  context.MAX_IN_ONE))
     
     # Exit positions in the portfolio that aren't in our long or short list
     for position in context.portfolio.positions:
         if position not in long_list + short_list:
+            log.info('Exiting %s' % position.symbol)
             order_target_percent(position, 0)
             
 def record_vars(context, data):
