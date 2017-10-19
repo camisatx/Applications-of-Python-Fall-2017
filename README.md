@@ -18,3 +18,13 @@ If you need help with the Quantopian API, check out their extensive [documentati
 To learn more about how Quantopian works, view their [tutorials](https://www.quantopian.com/tutorials) and [lecturers](https://www.quantopian.com/lectures).
 
 You can find strategies from other Quantopian members in the [forum](https://www.quantopian.com/posts). This is a great place to learn how others use Quantopian, along with learning more about strategies.
+
+## Class 2
+
+[Presentation](https://docs.google.com/presentation/d/1XBmdWTQ_t-GdZBNz1mOL7fh0jZv8-LS1xfEjs10JZIQ/edit?usp=sharing)
+
+Class 2 explore [Quantopian](https://www.quantopian.com) more. We look at a more advanced strategy that utilizes the Pipeline for restricting the stocks it considers. We also explore the research notebook system of Quantopian.
+
+We focus on the [Reversals During Earning Announcements](./quantopian/reversales/during/earnings/reversals_during_earnings.py), which suggests that the uncertainty regarding anticipated information events elicits predictable increases in expected returns to liquidity provision.
+
+To learn more about how the Quantopian Pipeline works, check out this [tutorial](https://www.quantopian.com/tutorials/pipeline#lesson1).
