@@ -28,3 +28,13 @@ Class 2 explore [Quantopian](https://www.quantopian.com) more. We look at a more
 We focus on the [Reversals During Earning Announcements](./quantopian/reversales/during/earnings/reversals_during_earnings.py), which suggests that the uncertainty regarding anticipated information events elicits predictable increases in expected returns to liquidity provision.
 
 To learn more about how the Quantopian Pipeline works, check out this [tutorial](https://www.quantopian.com/tutorials/pipeline#lesson1).
+
+## Class 3
+
+[Presentation](https://docs.google.com/presentation/d/1v6GHA0OaDzje116zdP8o-ScQsA-esWAYuOmhA7dxy68/edit?usp=sharing)
+
+Class 3 covers the development environment, and a quick intro to web apps.
+
+We discuss what dev environments are, and how [Anaconda](https://www.anaconda.com/download) can be used to fulfill our needs. Also, we look into web apps, including the MVC architecture and a quick Flask example.
+
+Be sure to read through some Flask tutorials on the internet.
