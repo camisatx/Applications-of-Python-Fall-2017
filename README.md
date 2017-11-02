@@ -3,6 +3,13 @@
 
 This is the course content for the Fall 2017 Applications of Python class. The main projects will focus on finance and data science.
 
+## Contents
+
+- [Class 1](#class-1)
+- [Class 2](#class-2)
+- [Class 3](#class-3)
+- [Class 4](#class-4)
+
 ## Class 1
 
 [Presentation](https://docs.google.com/presentation/d/1HLHjUlhV3QzeNNu6LckHgx63TIdyeWzPgg-KPo0x0IA/edit?usp=sharing)
@@ -38,3 +45,15 @@ Class 3 covers the development environment, and a quick intro to web apps.
 We discuss what dev environments are, and how [Anaconda](https://www.anaconda.com/download) can be used to fulfill our needs. Also, we look into web apps, including the MVC architecture and a quick Flask example.
 
 Be sure to read through some Flask tutorials on the internet.
+
+## Class 4
+
+[Presentation](https://docs.google.com/presentation/d/14K3PvUVDn_trTFC1Lb-CXPYDrsEXY08Ha279SFeZjso/edit?usp=sharing)
+
+Class 4 covers building a simple Python program to check if a file has profanity in it.
+
+We will code this example in the Spyder IDE (installed with Anaconda). The program will load a text file from the disk, and use an internet based API.
+
+View the final script [here](./profanity_screen/profanity_screen.py), and a movie quote text file [here](./profanity_screen/movie_quotes_1.txt).
+
+The code structure is covered in more detail in the Udacity [*Programming Foundations with Python*](https://www.udacity.com/course/programming-foundations-with-python--ud036) course.
