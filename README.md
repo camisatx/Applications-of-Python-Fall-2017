@@ -9,6 +9,7 @@ This is the course content for the Fall 2017 Applications of Python class. The m
 - [Class 2](#class-2)
 - [Class 3](#class-3)
 - [Class 4](#class-4)
+- [Class 5](#class-5)
 
 ## Class 1
 
@@ -57,3 +58,15 @@ We will code this example in the Spyder IDE (installed with Anaconda). The progr
 View the final script [here](./profanity_screen/profanity_screen.py), and a movie quote text file [here](./profanity_screen/movie_quotes_1.txt).
 
 The code structure is covered in more detail in the Udacity [*Programming Foundations with Python*](https://www.udacity.com/course/programming-foundations-with-python--ud036) course.
+
+## Class 5
+
+[Presentation](https://docs.google.com/presentation/d/1OchbLbBuGsa2w33qtsuhHCkm782Exaau9aRyk41kqjM/edit?usp=sharing)
+
+Class 5 introduces AI and machine learning. This is a very wide and deep field within computer science, so we only touch the surface.
+
+We'll explore a simple example of classifying digit images using scikit learn.
+
+View the Jupyter Notebook [here](./machine_learning/plot_digits_classification.ipynb).
+
+If you'd like to learn more about machine learning, check out this multi-part series: [Machine Learning for Humans](https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12)
