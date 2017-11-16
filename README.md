@@ -10,6 +10,7 @@ This is the course content for the Fall 2017 Applications of Python class. The m
 - [Class 3](#class-3)
 - [Class 4](#class-4)
 - [Class 5](#class-5)
+- [Class 6](#class-6)
 
 ## Class 1
 
@@ -70,3 +71,13 @@ We'll explore a simple example of classifying digit images using scikit learn.
 View the Jupyter Notebook [here](./machine_learning/plot_digits_classification.ipynb).
 
 If you'd like to learn more about machine learning, check out this multi-part series: [Machine Learning for Humans](https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12)
+
+## Class 6
+
+[Presentation](https://docs.google.com/presentation/d/1md0fOp9EMEzXljNsXx5FalJoEfCGgtqil7JEHGNRrPs/edit?usp=sharing)
+
+Class 6 investigates unsupervised machine learning, focusing specifically on clustering.
+
+We look at K-Means clustering, and how we can use it to build a model to cluster the Iris dataset.
+
+View the Jupyter Notebook [here](./iris/plot_cluster_iris.ipynb).
